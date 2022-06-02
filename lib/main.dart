@@ -1,8 +1,11 @@
 import 'package:film_uygulamasi/controller/Router.dart';
 import 'package:film_uygulamasi/mainScreen/body.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -16,17 +19,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       onGenerateRoute: Routerr.generateRoute,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 57, 100, 182),
-          centerTitle: true,
-          title: const Text("HADİ FİLM İZLEYELİM!"),
-        ),
-        body: const MainBody(),
-      ),
+      home: MainBody(),
     );
   }
 }

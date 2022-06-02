@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:film_uygulamasi/dataSource/movie_list.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -11,6 +12,7 @@ class MainBody extends StatefulWidget {
 }
 
 class _MainBodyState extends State<MainBody> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   final List<String> moviePhotos = [
     "https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2019/12/19112331/1_mOUcX8WpT2K6qi6jZRGRdw.jpg",
     "https://media.wired.com/photos/5df96d610b3cce0008205954/master/pass/Cul-madmax-MCDMAMA-EC188.jpg",
@@ -19,12 +21,43 @@ class _MainBodyState extends State<MainBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        imageBuilder(),
-        makeButton(context),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 57, 100, 182),
+        centerTitle: true,
+        title: const Text("HADİ FİLM İZLEYELİM!"),
+        leading: GestureDetector(
+            onTap: () => Navigator.pushNamed(context, "/profilePage"),
+            child: const Icon(Icons.account_circle)),
+        actions: [
+          PopupMenuButton<int>(
+            onSelected: (value) => makeFunction(context, value),
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                child: Text("Çıkış Yap"),
+                value: 0,
+              ),
+            ],
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          imageBuilder(),
+          makeButton(context),
+        ],
+      ),
     );
+  }
+
+  void makeFunction(BuildContext context, int value) {
+    switch (value) {
+      case 0:
+        auth.signOut();
+        Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
+        break;
+      default:
+    }
   }
 
   Widget makeButton(BuildContext context) {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "692120773511",
+    "project_id": "movieapplication-b358c",
+    "storage_bucket": "movieapplication-b358c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692120773511:android:47c0565d701b1c54a06922",
+        "android_client_info": {
+          "package_name": "com.example.film_uygulamasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692120773511-raldl6t8u586ap7n44kik0k93nh87il9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7wSAZfPUN2DXj5wC2_RzPzdz7UJVhd-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692120773511-raldl6t8u586ap7n44kik0k93nh87il9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
