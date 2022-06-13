@@ -127,6 +127,7 @@ List<MovieList> actionMovies = [
       movieId: 0,
       movieName: "Keskin Nişancı",
       imdbPoint: 7.3,
+      isFavourite: false,
       movieExplanation:
           "Navy S.E.A.L. sniper Chris Kyle's pinpoint accuracy saves countless lives on the battlefield and turns him into a legend. Back home with his family after four tours of duty, however, Chris finds that it is the war he can't leave behind.",
       outDate: 2014),
@@ -137,6 +138,7 @@ List<MovieList> actionMovies = [
       movieId: 1,
       movieName: "Tetikçiler",
       imdbPoint: 7.4,
+      isFavourite: false,
       movieExplanation:
           "In 2074, when the mob wants to get rid of someone, the target is sent into the past, where a hired gun awaits - someone like Joe - who one day learns the mob wants to 'close the loop' by sending back Joe's future self for assassination.",
       outDate: 2012),
@@ -147,6 +149,7 @@ List<MovieList> actionMovies = [
       movieId: 2,
       movieName: "Yarının Sınırında",
       imdbPoint: 7.9,
+      isFavourite: false,
       movieExplanation:
           "A soldier fighting aliens gets to relive the same day over and over again, the day restarting every time he dies.",
       outDate: 2014),
@@ -157,6 +160,7 @@ List<MovieList> actionMovies = [
       movieId: 3,
       movieName: "Ben Efsaneyim",
       imdbPoint: 7.2,
+      isFavourite: false,
       movieExplanation:
           "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
       outDate: 2007),
@@ -167,6 +171,7 @@ List<MovieList> actionMovies = [
       movieId: 4,
       movieName: "Elysium : Yeni Cennet",
       imdbPoint: 6.6,
+      isFavourite: false,
       movieExplanation:
           "In the year 2154, the very wealthy live on a man-made space station while the rest of the population resides on a ruined Earth. A man takes on a mission that could bring equality to the polarized worlds.",
       outDate: 2013)
@@ -179,6 +184,7 @@ List<MovieList> fearMovies = [
       movieId: 0,
       movieName: "Cinnet",
       imdbPoint: 8.4,
+      isFavourite: false,
       movieExplanation:
           "A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.",
       outDate: 1980),
@@ -189,6 +195,7 @@ List<MovieList> fearMovies = [
       movieId: 1,
       movieName: "Ritüel",
       imdbPoint: 7.1,
+      isFavourite: false,
       movieExplanation:
           "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.",
       outDate: 2019),
@@ -199,6 +206,7 @@ List<MovieList> fearMovies = [
       movieId: 2,
       movieName: "Ayin",
       imdbPoint: 7.3,
+      isFavourite: false,
       movieExplanation:
           "A grieving family is haunted by tragic and disturbing occurrences.",
       outDate: 2018),
@@ -209,6 +217,7 @@ List<MovieList> fearMovies = [
       movieId: 3,
       movieName: "Şeytan",
       imdbPoint: 8.1,
+      isFavourite: false,
       movieExplanation:
           "When a 12-year-old girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her.",
       outDate: 1973),
@@ -219,6 +228,7 @@ List<MovieList> fearMovies = [
       movieId: 4,
       movieName: "Blair Cadısı",
       imdbPoint: 6.5,
+      isFavourite: false,
       movieExplanation:
           "Three film students vanish after traveling into a Maryland forest to film a documentary on the local Blair Witch legend, leaving only their footage behind.",
       outDate: 1999),
@@ -231,6 +241,7 @@ List<MovieList> loveMovies = [
       movieId: 0,
       movieName: "Titanik",
       imdbPoint: 7.9,
+      isFavourite: false,
       movieExplanation:
           "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
       outDate: 1997),
@@ -241,6 +252,7 @@ List<MovieList> loveMovies = [
       movieId: 1,
       movieName: "Sil Baştan",
       imdbPoint: 8.3,
+      isFavourite: false,
       movieExplanation:
           "When their relationship turns sour, a couple undergoes a medical procedure to have each other erased from their memories.",
       outDate: 2004),
@@ -251,6 +263,7 @@ List<MovieList> loveMovies = [
       movieId: 2,
       movieName: "Umut Işığım",
       imdbPoint: 7.7,
+      isFavourite: false,
       movieExplanation:
           "After a stint in a mental institution, former teacher Pat Solitano moves back in with his parents and tries to reconcile with his ex-wife. Things get more challenging when Pat meets Tiffany, a mysterious girl with problems of her own.",
       outDate: 2012),
@@ -261,6 +274,7 @@ List<MovieList> loveMovies = [
       movieId: 3,
       movieName: "Amelie",
       imdbPoint: 8.3,
+      isFavourite: false,
       movieExplanation:
           "Amélie is an innocent and naive girl in Paris with her own sense of justice. She decides to help those around her and, along the way, discovers love.",
       outDate: 2001),
@@ -271,6 +285,7 @@ List<MovieList> loveMovies = [
       movieId: 4,
       movieName: "Benjamin Button'ın Tuhaf Hikayesi",
       imdbPoint: 7.8,
+      isFavourite: false,
       movieExplanation:
           "Tells the story of Benjamin Button, a man who starts aging backwards with consequences.",
       outDate: 2008),
@@ -282,6 +297,7 @@ List<MovieList> scienceFictionMovies = [
       movieId: 0,
       movieName: "Mesaj",
       imdbPoint: 7.5,
+      isFavourite: false,
       movieExplanation:
           "Dr. Ellie Arroway, after years of searching, finds conclusive radio proof of extraterrestrial intelligence, sending plans for a mysterious machine.",
       outDate: 1997),
@@ -291,6 +307,7 @@ List<MovieList> scienceFictionMovies = [
       movieId: 1,
       movieName: "2001:Uzay Yolu Macerası",
       imdbPoint: 8.3,
+      isFavourite: false,
       movieExplanation:
           "The Monoliths push humanity to reach for the stars; after their discovery in Africa generations ago, the mysterious objects lead mankind on an awesome journey to Jupiter, with the help of H.A.L. 9000: the world's greatest supercomputer.",
       outDate: 1968),
@@ -300,6 +317,7 @@ List<MovieList> scienceFictionMovies = [
       movieId: 2,
       movieName: "Yapay Zeka",
       imdbPoint: 7.2,
+      isFavourite: false,
       movieExplanation:
           "A highly advanced robotic boy longs to become real so that he can regain the love of his human mother.",
       outDate: 2001),
@@ -310,6 +328,7 @@ List<MovieList> scienceFictionMovies = [
       movieId: 3,
       movieName: "Ex Machina",
       imdbPoint: 7.7,
+      isFavourite: false,
       movieExplanation:
           "A young programmer is selected to participate in a ground-breaking experiment in synthetic intelligence by evaluating the human qualities of a highly advanced humanoid A.I.",
       outDate: 2014),
@@ -320,6 +339,7 @@ List<MovieList> scienceFictionMovies = [
       movieId: 4,
       movieName: "Geliş",
       imdbPoint: 7.9,
+      isFavourite: false,
       movieExplanation:
           "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.",
       outDate: 2016),
@@ -331,6 +351,7 @@ List<MovieList> adventureMovies = [
       movieId: 0,
       movieName: "Kutsal Hazine Avcıları",
       imdbPoint: 8.4,
+      isFavourite: false,
       movieExplanation:
           "In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before Adolf Hitler's Nazis can obtain its awesome powers.",
       outDate: 1981),
@@ -341,6 +362,7 @@ List<MovieList> adventureMovies = [
       movieId: 1,
       movieName: "Soysuzlar Çetesi",
       imdbPoint: 8.3,
+      isFavourite: false,
       movieExplanation:
           "In Nazi-occupied France during World War II, a plan to assassinate Nazi leaders by a group of Jewish U.S. soldiers coincides with a theatre owner's vengeful plans for the same.",
       outDate: 2009),
@@ -350,6 +372,7 @@ List<MovieList> adventureMovies = [
       movieId: 2,
       movieName: "Harry Potterve Felsefe Taşı",
       imdbPoint: 7.6,
+      isFavourite: false,
       movieExplanation:
           "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.",
       outDate: 0),
@@ -360,6 +383,7 @@ List<MovieList> adventureMovies = [
       movieId: 3,
       movieName: "Düşüş",
       imdbPoint: 7.8,
+      isFavourite: false,
       movieExplanation:
           "In a hospital on the outskirts of 1920s Los Angeles, an injured stuntman begins to tell a fellow patient, a little girl with a broken arm, a fantastic story of five mythical heroes. Thanks to his fractured state of mind and her vivid imagination, the line between fiction and reality blurs as the tale advances.",
       outDate: 0),
@@ -370,6 +394,7 @@ List<MovieList> adventureMovies = [
       movieId: 4,
       movieName: "Büyük Balık",
       imdbPoint: 8,
+      isFavourite: false,
       movieExplanation:
           "A frustrated son tries to determine the fact from fiction in his dying father's life.",
       outDate: 0),

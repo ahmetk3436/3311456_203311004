@@ -3,6 +3,8 @@ import 'package:film_uygulamasi/dataSource/movie_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:hive/hive.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MainBody extends StatefulWidget {
   const MainBody({Key? key}) : super(key: key);
@@ -18,7 +20,6 @@ class _MainBodyState extends State<MainBody> {
     "https://media.wired.com/photos/5df96d610b3cce0008205954/master/pass/Cul-madmax-MCDMAMA-EC188.jpg",
     "https://media.autoexpress.co.uk/image/private/s--vo9SjHSl--/f_auto,t_content-image-full-mobile@1/v1562241855/autoexpress/2015/11/best-movie-cars-header.jpg"
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,18 +42,42 @@ class _MainBodyState extends State<MainBody> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          imageBuilder(),
-          makeButton(context),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            imageBuilder(),
+            movieChart(),
+            makeButton(context),
+          ],
+        ),
       ),
     );
+  }
+
+  Widget movieChart() {
+    return SfCartesianChart(
+        // Initialize category axis
+        primaryXAxis: CategoryAxis(),
+        title: ChartTitle(text: "Yıllara Göre Sinemaya Giden Kişi Sayısı"),
+        series: <LineSeries<SalesData, String>>[
+          LineSeries<SalesData, String>(
+              // Bind data source
+              dataSource: <SalesData>[
+                SalesData('2018', "1311300934"),
+                SalesData('2019', "1228763382"),
+                SalesData('2020', "221762724"),
+                SalesData('2021', "496534193"),
+                SalesData('2022', "782360723")
+              ],
+              xValueMapper: (SalesData sales, _) => sales.year,
+              yValueMapper: (SalesData sales, _) => int.parse(sales.sales))
+        ]);
   }
 
   void makeFunction(BuildContext context, int value) {
     switch (value) {
       case 0:
+        Hive.box("profileData").clear();
         auth.signOut();
         Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
         break;
@@ -62,7 +87,7 @@ class _MainBodyState extends State<MainBody> {
 
   Widget makeButton(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(top: 180.0, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 5.0, left: 10, right: 10),
         child: Column(
           children: <Widget>[
             GridView.builder(
@@ -119,4 +144,10 @@ class _MainBodyState extends State<MainBody> {
             fit: BoxFit.cover,
             placeholder: (context, url) => const CircularProgressIndicator()),
       );
+}
+
+class SalesData {
+  SalesData(this.year, this.sales);
+  final String year;
+  final String sales;
 }

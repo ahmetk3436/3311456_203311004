@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:film_uygulamasi/dataSource/movie_list.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 class FavouriteMovies extends StatefulWidget {
   const FavouriteMovies({Key? key}) : super(key: key);
@@ -10,6 +13,46 @@ class FavouriteMovies extends StatefulWidget {
 }
 
 class _FavouriteMoviesState extends State<FavouriteMovies> {
+  Future<String> get getDosyaYolu async {
+    Directory dosya = await getApplicationDocumentsDirectory();
+    return dosya.path;
+  }
+
+  Future get dosyaOlustur async {
+    var dosyakonumu = await getDosyaYolu;
+    return File(dosyakonumu + "/favoriFilmler.txt");
+  }
+
+  Future dosyaYaz(String dosyaIcerigi) async {
+    var myDosya = await dosyaOlustur;
+
+    return myDosya.writeAsString(dosyaIcerigi);
+  }
+
+  Future<String> okunacakDosya() async {
+    try {
+      var myDosya = await dosyaOlustur;
+
+      String dosyaicergi = myDosya.readAsStringSync();
+      return dosyaicergi;
+    } catch (exception) {
+      debugPrint("HATA :$exception");
+    }
+    return okunacakDosya();
+  }
+
+  void Yaz(String filmAdi) async {
+    dosyaYaz(filmAdi);
+  }
+
+  void Oku() async {
+    okunacakDosya().then((String deger) {
+      setState(() {
+        print(deger);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,29 +80,36 @@ class _FavouriteMoviesState extends State<FavouriteMovies> {
                 direction: DismissDirection.endToStart,
                 onDismissed: (_) {
                   setState(() {
-                    switch (favouriteMovies[index].categoryId) {
-                      case 0:
-                        movieCategory[0]
-                            .movieList[favouriteMovies[index].movieId]
-                            .isFavourite = false;
-                        break;
-                      default:
-                    }
+                    movieCategory[favouriteMovies[index].categoryId]
+                        .movieList[favouriteMovies[index].movieId]
+                        .isFavourite = false;
                     favouriteMovies.removeAt(index);
                   });
                 },
-                child: ListTile(
-                  leading: CachedNetworkImage(
-                      imageUrl: favouriteMovies[index].imgUrl!),
-                  title: Text(favouriteMovies[index].movieName),
-                  subtitle: Text(favouriteMovies[index].movieExplanation),
-                  trailing: const Icon(Icons.movie),
-                  isThreeLine: true,
+                child: GestureDetector(
+                  onLongPress: () {
+                    Yaz(favouriteMovies[index].movieName);
+                  },
+                  onDoubleTap: () {
+                    Oku();
+                  },
+                  child: ListTile(
+                    leading: CachedNetworkImage(
+                        imageUrl: favouriteMovies[index].imgUrl!),
+                    title: Text(favouriteMovies[index].movieName),
+                    subtitle: Text(favouriteMovies[index].movieExplanation),
+                    trailing: const Icon(Icons.movie),
+                    isThreeLine: true,
+                  ),
                 ),
               ),
           scrollDirection: Axis.vertical,
           itemCount: favouriteMovies.length),
     );
+  }
+
+  Widget saveData() {
+    return Container();
   }
 
   Widget movieImages() {

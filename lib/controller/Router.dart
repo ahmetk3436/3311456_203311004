@@ -45,7 +45,7 @@ class Routerr {
       case '/registerAndLogin':
         return MaterialPageRoute(builder: (_) => const RegisterAndLogin());
       case '/profileUpdate':
-        return MaterialPageRoute(builder: (_) => const ProfileUpdate());
+        return MaterialPageRoute(builder: (_) => ProfileUpdate());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

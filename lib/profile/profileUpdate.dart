@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:film_uygulamasi/dataSource/user.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hive/hive.dart';
 
 class ProfileUpdate extends StatelessWidget {
-  const ProfileUpdate({Key? key}) : super(key: key);
-
+  ProfileUpdate({Key? key}) : super(key: key);
+  final profileData = Hive.box("profileData");
   @override
   Widget build(BuildContext context) {
     String failInput = "Hatalı giriş";
@@ -43,11 +43,15 @@ class ProfileUpdate extends StatelessWidget {
                     if (textEditingControllerName.text.isNotEmpty &&
                         textEditingControllerBirthDate.text.isNotEmpty &&
                         textEditingControllerAge.text.isNotEmpty) {
-                      user.clear();
-                      user.add(User(
-                          fullName: textEditingControllerName.text,
-                          birthDate: textEditingControllerBirthDate.text,
-                          age: int.parse(textEditingControllerAge.text)));
+                      Map<String, dynamic> map = {};
+                      profileData.put(
+                          "user",
+                          map = {
+                            "name": textEditingControllerName.text.toString(),
+                            "birthDate":
+                                textEditingControllerBirthDate.text.toString(),
+                            "age": textEditingControllerAge.text.toString()
+                          });
                       Navigator.pushNamed(context, "/profilePage");
                     } else {
                       Fluttertoast.showToast(
